@@ -1,0 +1,27 @@
+[2026-03-23T10:19:23.449+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: our_first_dag.V3.thrid_task scheduled__2025-07-31T00:00:00+00:00 [queued]>
+[2026-03-23T10:19:23.464+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: our_first_dag.V3.thrid_task scheduled__2025-07-31T00:00:00+00:00 [queued]>
+[2026-03-23T10:19:23.465+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 6
+[2026-03-23T10:19:23.491+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): thrid_task> on 2025-07-31 00:00:00+00:00
+[2026-03-23T10:19:23.500+0000] {standard_task_runner.py:60} INFO - Started process 1602 to run task
+[2026-03-23T10:19:23.505+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'our_first_dag.V3', 'thrid_task', 'scheduled__2025-07-31T00:00:00+00:00', '--job-id', '432', '--raw', '--subdir', 'DAGS_FOLDER/our_first_dag.py', '--cfg-path', '/tmp/tmp62n30nbx']
+[2026-03-23T10:19:23.507+0000] {standard_task_runner.py:88} INFO - Job 432: Subtask thrid_task
+[2026-03-23T10:19:23.632+0000] {task_command.py:423} INFO - Running <TaskInstance: our_first_dag.V3.thrid_task scheduled__2025-07-31T00:00:00+00:00 [running]> on host db60e85c4eb2
+[2026-03-23T10:19:23.832+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ninepongsapat' AIRFLOW_CTX_DAG_ID='our_first_dag.V3' AIRFLOW_CTX_TASK_ID='thrid_task' AIRFLOW_CTX_EXECUTION_DATE='2025-07-31T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-07-31T00:00:00+00:00'
+[2026-03-23T10:19:23.837+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-23T10:19:23.839+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', "echo hello, i'm task3 and will be running after task1 at the same time with task2"]
+[2026-03-23T10:19:23.875+0000] {subprocess.py:86} INFO - Output:
+[2026-03-23T10:19:23.879+0000] {subprocess.py:93} INFO - /usr/bin/bash: -c: line 1: unexpected EOF while looking for matching `''
+[2026-03-23T10:19:23.881+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2026-03-23T10:19:23.912+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-03-23T10:19:23.921+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=our_first_dag.V3, task_id=thrid_task, execution_date=20250731T000000, start_date=20260323T101923, end_date=20260323T101923
+[2026-03-23T10:19:23.963+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 432 for task thrid_task (Bash command failed. The command returned a non-zero exit code 2.; 1602)
+[2026-03-23T10:19:24.008+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-03-23T10:19:24.088+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

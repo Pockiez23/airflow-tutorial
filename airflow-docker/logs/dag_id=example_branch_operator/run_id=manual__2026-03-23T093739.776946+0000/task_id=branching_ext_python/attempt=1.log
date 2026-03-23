@@ -1,0 +1,18 @@
+[2026-03-23T09:37:57.940+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: example_branch_operator.branching_ext_python manual__2026-03-23T09:37:39.776946+00:00 [queued]>
+[2026-03-23T09:37:57.961+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: example_branch_operator.branching_ext_python manual__2026-03-23T09:37:39.776946+00:00 [queued]>
+[2026-03-23T09:37:57.962+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2026-03-23T09:37:57.992+0000] {taskinstance.py:2217} INFO - Executing <Task(BranchExternalPythonOperator): branching_ext_python> on 2026-03-23 09:37:39.776946+00:00
+[2026-03-23T09:37:58.006+0000] {standard_task_runner.py:60} INFO - Started process 135 to run task
+[2026-03-23T09:37:58.012+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'example_branch_operator', 'branching_ext_python', 'manual__2026-03-23T09:37:39.776946+00:00', '--job-id', '8', '--raw', '--subdir', '/home/***/.local/lib/python3.8/site-packages/***/example_dags/example_branch_operator.py', '--cfg-path', '/tmp/tmp087s4pcs']
+[2026-03-23T09:37:58.021+0000] {standard_task_runner.py:88} INFO - Job 8: Subtask branching_ext_python
+[2026-03-23T09:37:58.142+0000] {task_command.py:423} INFO - Running <TaskInstance: example_branch_operator.branching_ext_python manual__2026-03-23T09:37:39.776946+00:00 [running]> on host 69bc8a9e394b
+[2026-03-23T09:37:58.336+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='example_branch_operator' AIRFLOW_CTX_TASK_ID='branching_ext_python' AIRFLOW_CTX_EXECUTION_DATE='2026-03-23T09:37:39.776946+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-23T09:37:39.776946+00:00'
+[2026-03-23T09:38:00.379+0000] {process_utils.py:182} INFO - Executing cmd: /usr/local/bin/python /tmp/venv-call82fclzva/script.py /tmp/venv-call82fclzva/script.in /tmp/venv-call82fclzva/script.out /tmp/venv-call82fclzva/string_args.txt /tmp/venv-call82fclzva/termination.log
+[2026-03-23T09:38:00.433+0000] {process_utils.py:186} INFO - Output:
+[2026-03-23T09:38:04.127+0000] {python.py:202} INFO - Done. Returned value was: ext_py_d
+[2026-03-23T09:38:04.132+0000] {branch.py:35} INFO - Branch into ext_py_d
+[2026-03-23T09:38:04.139+0000] {skipmixin.py:178} INFO - Following branch ext_py_d
+[2026-03-23T09:38:04.265+0000] {skipmixin.py:244} INFO - Skipping tasks [('ext_py_b', -1), ('ext_py_a', -1), ('ext_py_c', -1)]
+[2026-03-23T09:38:04.433+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=example_branch_operator, task_id=branching_ext_python, execution_date=20260323T093739, start_date=20260323T093757, end_date=20260323T093804
+[2026-03-23T09:38:04.556+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-03-23T09:38:04.723+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check
